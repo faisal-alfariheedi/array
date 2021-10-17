@@ -21,17 +21,20 @@ class MainActivity : AppCompatActivity() {
             if (edn.text.isNotEmpty()){
                 mem.add(edn.text.toString())
                 tv.hint=(mem.size+1).toString()
+
             }
         }
         swmem.setOnClickListener{
             if (ed1.text.isNotEmpty()&&(ed1.text.toString().toInt()-1<mem.size)){
                 tv.text=mem[ed1.text.toString().toInt()-1]
+                ed1.setText("")
             }
         }
         ed1.setOnFocusChangeListener { _, _ -> tv.text="" }
     }
     fun init() {
         tv = findViewById(R.id.tvmem)
+        tv.hint=0.toString()
         edn = findViewById(R.id.edn)
         ed1 = findViewById(R.id.ed1)
         swmem = findViewById(R.id.swmem)
